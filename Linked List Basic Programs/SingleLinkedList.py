@@ -118,21 +118,160 @@ class LinkedList:
             new_node        = Node(data)
             new_node.ref    = n.ref
             n.ref           = new_node
-new_linked_list = LinkedList()
+    def get_count(self):
+        '''
+        Count number of elements in LL
+        '''
+        if self.start_node is None:
+            return 0
+        n = self.start_node
+        count = 0
+        while n is not None:
+            count = count + 1
+            n = n.ref
+        return count
+    def search_item(self,x):
+        '''
+        Search x in LL
+        '''
+        if self.start_node is None:
+            print("List has no elements")
+            return
+        n = self.start_node
+        while n is not None:
+            if n.item == x:
+                print("Item found")
+                return True
+            n = n.ref
+        print("Item not found")
+        return False
+    def make_new_list(self):
+        """
+        Create a new linked list with n nodes added through the end of LL turn by turn
+        """
+        nums = int(input("How many nodes do you want to create: "))
+        if nums == 0:
+            return
+        for i in range(nums):
+            value = int(input("Enter the value for node: "))
+            self.insert_at_end(value)
+    def delete_at_start(self):
+        '''
+        Delete the first node of the LL
+        '''
+        if self.start_node is None:
+            print("The list has no element to delete")
+            return
+        self.start_node = self.start_node.ref
+    def delete_at_end(self):
+        '''
+        Iterate through the linked list till the last element and then we need 
+        to set the reference of the second last element to none , which converts
+        second last element to the last element
+        '''
+        if self.start_node is None:
+            print("The list has no element to delete")
+            return
+        n = self.start_node
+        while n.ref.ref is not None:
+            n = n.ref
+        n.ref = None
+    def delete_element_by_value(self,x):
+        '''
+        If the start_node is empty , it means that there are no elements in LL
+        If the first item is the value that we want to delete , then just shift 
+        the start_node , or else iterate it until next element is None , and see 
+        next element value is the element that we need to find, if yes stop the 
+        iteration , we can skip the next node which have value x and join the 
+        current node with the next node of next node , so next node will be out of
+        linked list.
+        We set reference of the previous node to the node which exists after the node which is being deleted.
+        '''
+        if self.start_node is None:
+            print("The list has no element to delete")
+            return
+        #Deleting first node
+        if self.start_node.item == x:
+            self.start_node = self.start_node.ref
+            return
+        n = self.start_node
+        while n.ref is not None:
+            if n.ref.item == x:
+                break
+            n = n.ref
+        if n.ref is None:
+            print("Item is not found in the list")
+        else:
+            n.ref = n.ref.ref
+    def reverse_linkedlist(self):
+        '''
+        Youtube video link (https://youtu.be/XgABnoJLtG4)
+        Here actually visualize a scenario , where we are having three nodes
+        head pointer points to the first node and to persist the previous node
+        address we will be using temp node and to persist the next node address 
+        we use temp2 node , so now we stored the addresses of prev and next nodes
+        Now , To reverse the link of the linkedlist
+        Step 1: Point temp to Null , head to first node , temp2 to the second node (head.ref)
+        Step 2: Before reversing the link between node1 & node2 , we must reverse the
+        node link for node1 , hypothitically it is just making the next of the first node to null
+        Step 3: So , steps will be as follows
+        Step 4: traverse the list as long as head is not None
+        Step 5: point temp2 to head.ref
+        Step 6: head.ref to temp && temp = head && head = temp2
+        Step 7: At each iteration , temp2 and head both points to the same node and temp
+        points to the previous node , and at last both head and temp2 will be null and
+        the loop terminates , but the temp node consists of the last node of the
+        earlier linkedlist , it means the present reversed linked list.
+        '''
+        temp = None
+        head = self.start_node
+        while head is not None:
+            temp2 = head.ref
+            head.ref = temp
+            temp = head
+            head = temp2
+        self.start_node = temp
+print("***************************************************************")
+new_linked_list_1 = LinkedList()
 print("Adding elements from the end of the LL")
-new_linked_list.insert_at_end(5)
-new_linked_list.insert_at_end(10)
-new_linked_list.insert_at_end(15)
-new_linked_list.traverse_list()
+new_linked_list_1.insert_at_end(5)
+new_linked_list_1.insert_at_end(10)
+new_linked_list_1.insert_at_end(15)
+new_linked_list_1.traverse_list()
 print("Inserting element at start of LL")
-new_linked_list.insert_at_start(20)
-new_linked_list.traverse_list()
+new_linked_list_1.insert_at_start(20)
+new_linked_list_1.traverse_list()
 print("Insert a new element after item 10")
-new_linked_list.insert_after_item(10,17)
-new_linked_list.traverse_list()
+new_linked_list_1.insert_after_item(10,17)
+new_linked_list_1.traverse_list()
 print("Insert a new element before item 17")
-new_linked_list.insert_before_item(17,25)
-new_linked_list.traverse_list()
+new_linked_list_1.insert_before_item(17,25)
+new_linked_list_1.traverse_list()
 print("Insert an element at index 3")
-new_linked_list.insert_at_index(3,8)
-new_linked_list.traverse_list()
+new_linked_list_1.insert_at_index(3,8)
+new_linked_list_1.traverse_list()
+print("Total number of variables in LL",new_linked_list_1.get_count())
+print("Is 5 present in LL: ",new_linked_list_1.search_item(5))
+print("Reverse the linked list: ")
+new_linked_list_1.reverse_linkedlist()
+new_linked_list_1.traverse_list()
+print("**************************************************************")
+new_linked_list_2 = LinkedList()
+new_linked_list_2.insert_at_end(10)
+new_linked_list_2.insert_at_end(20)
+new_linked_list_2.insert_at_end(30)
+new_linked_list_2.insert_at_end(40)
+new_linked_list_2.insert_at_end(50)
+print("new_linked_list_2: ")
+new_linked_list_2.traverse_list()
+new_linked_list_2.delete_at_start()
+print("delete_at_start: ")
+new_linked_list_2.traverse_list()
+new_linked_list_2.delete_at_end()
+print("delete_at_end: ")
+new_linked_list_2.traverse_list()
+new_linked_list_2.delete_element_by_value(30)
+print("delete_element_by_value: ")
+new_linked_list_2.traverse_list()
+print("***************************************************************")
+
