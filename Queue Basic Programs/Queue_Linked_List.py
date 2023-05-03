@@ -84,31 +84,3 @@ q.queueDisplay()
 
 # Print front of queue
 q.front_element()
-
-'''
-#Create a new queue of capacity 4
-    q = Queue(4)
-    #Print queue elements
-    q.queueDisplay()
-    #Insert elements in the queue
-    q.queueEnqueue(20)
-    q.queueEnqueue(30)
-    q.queueEnqueue(40)
-    q.queueEnqueue(50)
-    #Print queue elements
-    q.queueDisplay()
-    #Insert element in queue
-    q.queueEnqueue(60)
-    #Print queue elements
-    q.queueDisplay()
-    
-    q.queueDequeue()
-    q.queueDequeue()
-    print("\n\nafter two node deletion\n")
- 
-    # Print queue elements
-    q.queueDisplay()
- 
-    # Print front of queue
-    q.queueFront()
-'''
