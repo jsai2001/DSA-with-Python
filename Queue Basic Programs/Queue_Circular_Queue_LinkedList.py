@@ -1,4 +1,9 @@
-'''Declaring a structure for the node'''
+'''
+Time Complexity , for implementing circular queue using
+Linked List enqueue and dequeue is O(1) time
+
+Declaring a structure for the node
+'''
 class Node:
     def __init__(self,data):
         self.data = data
