@@ -116,3 +116,13 @@ BST.insertion(root,2)
 
 print("\nAfter inserting node 2, the inorder traversal of the given binary tree is :")
 BST.inorder(root)
+'''
+Output:
+
+The inorder traversal of the given binary tree is :
+4 25 30 35 45 45 50 60 
+After deleting node 25, the inorder traversal of the given binary tree is :
+4 30 35 45 45 50 60 
+After inserting node 2, the inorder traversal of the given binary tree is :
+2 4 30 35 45 45 50 60 
+'''
