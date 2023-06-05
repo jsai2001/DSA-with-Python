@@ -1,8 +1,11 @@
 import sys
 
+# Time Complexity: O(V^2)
+# Space Complexity: O(V)
 # Responsibilities of this graph
 # 1) Create a adjacency matrix for the graph
-# 2) Find the minimum spanning tree for that graph
+# 2) Find the minimum spann
+# ing tree for that graph
 class Graph():
     def __init__(self,vertices):
         '''
