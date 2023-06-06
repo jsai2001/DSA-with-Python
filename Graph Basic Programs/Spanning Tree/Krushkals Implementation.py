@@ -1,4 +1,16 @@
 # Krushkal's algorithm in Python
+'''
+Time Complexity: O(E * logE) or O(E * logV) 
+
+Sorting of edges takes O(E * logE) time. 
+After sorting, we iterate through all edges and apply the find-union algorithm. 
+The find and union operations can take at most O(logV) time.
+So overall complexity is O(E * logE + E * logV) time. 
+The value of E can be at most O(V2), so O(logV) and O(logE) are the same. 
+Therefore, the overall time complexity is O(E * logE) or O(E*logV)
+
+Auxiliary Space: O(V + E), where V is the number of vertices and E is the number of edges in the graph.
+'''
 class Graph:
     def __init__(self,vertices):
         '''
