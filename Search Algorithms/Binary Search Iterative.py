@@ -1,6 +1,12 @@
 # Iterative Binary Search function
 # It returns index of x in given array arr if present
 # else returns -1
+'''
+Time Complexity: O(log n)
+Space Complexity: O(1) 
+    As we are just comparing values,
+    and no additional space required more than an integer variable
+'''
 def binary_search(arr,x):
     low = 0
     high = len(arr) - 1
