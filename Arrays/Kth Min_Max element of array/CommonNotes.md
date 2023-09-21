@@ -56,3 +56,9 @@ In this example, we have an array arr with the values [4, 2, 7, 1, 5, 9, 3] and 
 * This means that the Kth largest element is in the right partition of the array.
 * The loop continues until the condition is met, and finally, we return the Kth largest element.
 * In our example, the output will be 5, as it is the 3rd largest element in the array.
+
+This is a glimpse of one pivot movement using the partition algorithm that we discussed above.
+
+![Quick Select algorithm to find Kth Max element of an array](./Common_Images/img_2.jpg "Quick Select algorithm to find Kth Max element of an array")
+
+![Quick Select algorithm to find Kth Max element of an array](./Common_Images/img_3.jpg "Quick Select algorithm to find Kth Max element of an array")
