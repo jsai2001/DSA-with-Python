@@ -15,4 +15,5 @@ We will be discussing various methods to find Kth Largest Element of the array
 
 ![TimeComplexity Analysis while using Heaps](./Common_Images/img_1.png "TimeComplexity Analysis while using Heaps")
 
-* If we use max heap to find Kth largest element
+* If we use max heap to find Kth largest element , then we would require O(N) time for building a heap and after pulling out top most element which is largest from the heap , we need to re-heapify the array , which would take logN times , and we does this re-heapification K times , as we gonna re-heap K times and pull the top most element from the heap. Overall It would take O(N+KlogN)
+* If we use min heap for finding Kth largest element , it would take O(N+(N-K+1)log(N-K+1)) , because we do remove element and re-heapify N-K+1 times , as we need to remove the N-K+1 elements from the first to get the Kth Largest element using min-heap.
