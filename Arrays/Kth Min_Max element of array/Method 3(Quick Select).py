@@ -1,3 +1,22 @@
+# Time Complexity
+# Regular => O(n)
+# Best Case => O(n) 
+#    => If the element that we want to find is n/2th element ,
+#       and after one partition our i index present at n/2th index 
+#       and n/2th element is present at pivot , which is last of the array
+#       So, in one iteration , you are able to find the n/2th element
+# Worst Case => O(n^2)
+#    => In a sorted array , if we want to find 1st smallest element ,
+#       We need to have pivot from the last of the array , and sort it 
+#       to the first , where the array is already sorted, as we know , 
+#       in first iteration , it iterates through n elements
+#       in second iteration , it iterates through n-1 elements
+#       in third iteration , it iterates through n-2 elements
+#       So on...... , It takes O(n^2) worst case time complexity
+
+# It is faster than Quick sort algorithm ,
+# because Quick select remebers only one partition ,
+# it only store the partition which is between high and low pointers.
 def partition(arr,low,high):
     pivot = arr[high]
     i = low
