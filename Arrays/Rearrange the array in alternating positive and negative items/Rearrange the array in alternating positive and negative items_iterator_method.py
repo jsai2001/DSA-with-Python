@@ -1,5 +1,6 @@
 # Time Complexity : O(n^2)
 # Auxilary Space: O(1)
+# Here the numerical order doesn't maintained
 def rearrange(arr,n):
     i=0
     j=n-1
