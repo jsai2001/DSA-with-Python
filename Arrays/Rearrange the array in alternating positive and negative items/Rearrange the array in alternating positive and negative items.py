@@ -12,13 +12,14 @@ def rearrange(arr,n):
             arr[i],arr[j]=arr[j],arr[i]
     if(i==0 or i==n):
         return
-    i+=1
+    if(n%2==1):
+        i+=1
     k=0
     while(k<n and i<n):
         arr[i],arr[k]=arr[k],arr[i]
         i+=1
         k+=2
     return arr
-arr = list(map(int,"-5 -2 5 2 4 7 1 8 0 -8".split()))
+arr = list(map(int,"1 2 3 -4 -1 4".split()))
 n = len(arr)
 print(rearrange(arr,n))
