@@ -1,3 +1,5 @@
+# Time complexity: O(n)
+# Space complexity: O(n)
 def subArrayExists(arr,n):
     ##Your code here
     flag=0
