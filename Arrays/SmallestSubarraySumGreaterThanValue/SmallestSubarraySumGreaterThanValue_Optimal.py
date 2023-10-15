@@ -5,6 +5,7 @@ def smallestSubArrayGreaterThanX(arr,n,X):
     i = j = 0
     curr_sum = 0
     min_subarr_len = sys.maxsize
+    flag = 0
     while(i<=j and j<n):
         while(curr_sum<=X and j<n):
             curr_sum+=arr[j]
@@ -13,6 +14,9 @@ def smallestSubArrayGreaterThanX(arr,n,X):
             min_subarr_len = min(min_subarr_len,j-i)
             curr_sum-=arr[i]
             i+=1
+            flag = 1
+    if(flag == 0): # If we didn't find any subarray which sum is greater than X
+        return 0
     return min_subarr_len
 arr = [1, 4, 45, 6, 0, 19]
 X = 51
