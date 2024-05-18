@@ -1,6 +1,9 @@
 """
-Time Complexity:
-Space Complexity:
+Time Complexity: O(n)
+Space Complexity: O(1) 
+[ ensures the linked list is processed in groups of k nodes, 
+  reversing each group and connecting them properly, 
+  with space complexity of O(1).]
 """
 class ListNode:
     def __init__(self, value=0, next=None):
