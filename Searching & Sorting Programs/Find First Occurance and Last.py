@@ -1,3 +1,5 @@
+# Time Complexity: 𝑂(log𝑛)
+# Space Complexity: 𝑂(1)
 """
 Problem Statement:
 Given a sorted array arr containing n elements with possibly some duplicate, 
@@ -69,3 +71,24 @@ if first_occurrence == -1:
     print([-1, -1])
 else:
     print([first_occurrence, last_occurrence])
+"""
+Time Complexity:
+The time complexity of the code is 𝑂(log𝑛)
+
+The function uses binary search to find the first and last occurrences of the element x.
+Binary search operates by repeatedly dividing the search interval in half, which leads to a logarithmic time complexity.
+Each binary search operation runs in 𝑂(log𝑛) time, 
+and since we perform two binary search operations (one for the first occurrence and one for the last occurrence), 
+the overall time complexity is 𝑂(log𝑛)+𝑂(log𝑛)=𝑂(log𝑛).
+
+Space Complexity:
+The space complexity of the code is 𝑂(1)
+The space complexity considers the additional space used by the algorithm.
+The provided function does not use any additional data structures that grow with the input size.
+It uses a fixed amount of extra space for variables such as low, high, mid, and result.
+Therefore, the space complexity is constant, 𝑂(1).
+
+Summary:
+Time Complexity: 𝑂(log𝑛)
+Space Complexity: 𝑂(1)
+"""
