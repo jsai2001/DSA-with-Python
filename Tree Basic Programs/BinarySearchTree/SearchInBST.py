@@ -1,3 +1,5 @@
+# Time Complexity: O(h) in average case , O(n) in worst case
+# Space Complexity: O(1)
 """
 To find a value in a Binary Search Tree (BST), 
 you can follow a straightforward algorithm leveraging the properties of a BST. 
