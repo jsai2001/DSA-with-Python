@@ -1,5 +1,9 @@
 Certainly, here's the Python code to solve the Longest Common Subsequence (LCS) problem for three strings using dynamic programming, along with a detailed explanation and documentation:
 
+Time Complexity: O(m * n * p)
+
+Space Complexity: O(m * n * p)
+
 ```python
 """
 This code solves the Longest Common Subsequence (LCS) problem for three strings using dynamic programming in Python.
@@ -92,3 +96,25 @@ print("Length of LCS of three strings:", lcs_length)
 - The 3D DP table allows us to consider all possible combinations of prefixes from the three strings, leading to the optimal LCS length.
 
 I hope this comprehensive explanation clarifies the entire code and its functionality. Feel free to ask if you have any further questions!
+
+You're right! The time and space complexity of the LCS of three strings using dynamic programming is indeed O(m * n * p), where:
+
+- m is the length of the first string.
+- n is the length of the second string.
+- p is the length of the third string.
+
+**Breakdown:**
+
+- **Space Complexity (O(m * n * p)):**
+  - The code creates a 3D DP table `dp` with dimensions (m x n x p) to store LCS lengths for all possible combinations of prefixes from the three strings. This table dominates the space complexity as it stores intermediate results for efficient computation.
+
+- **Time Complexity (O(m * n * p)):**
+  - The nested loops iterate through the DP table, considering each cell (m * n * p cells in total).
+  - Within each cell, calculations are performed to determine the LCS length based on previous subproblems (constant time operations).
+
+  Therefore, the overall time complexity is dominated by the number of cells visited in the DP table, resulting in O(m * n * p).
+
+**In essence:**
+
+- The space complexity is O(m * n * p) due to the DP table size.
+- The time complexity is also O(m * n * p) because the algorithm iterates through the entire DP table.
