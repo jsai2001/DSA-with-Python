@@ -1,4 +1,4 @@
-## maximum difference between the number of 0s and the number of 1s
+## Maximum difference between the number of 0s and the number of 1s
 
 - Time Complexity: O(n)
 - Space Complexity: O(1)
