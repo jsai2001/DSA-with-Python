@@ -1,5 +1,9 @@
 To solve the problem of finding the minimum number of jumps needed to reach the end of an array optimally, we can use a greedy algorithm. Let's break down the solution step-by-step with a clear explanation:
 
+Time complexity of \(O(n)\) 
+
+Space complexity of \(O(1)\)
+
 ### Problem Statement
 Given an array of integers where each element represents the maximum number of steps that can be jumped forward from that element, find the minimum number of jumps needed to reach the end of the array starting from the first element.
 
