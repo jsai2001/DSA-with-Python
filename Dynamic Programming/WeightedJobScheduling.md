@@ -1,6 +1,6 @@
 # Weighted Job Scheduling
 
-- Time Complexity: \(O(N \log N)\)
+- Time Complexity: \(O(N log N)\)
 
 - Space Complexity: \(O(N)\)
 
@@ -108,18 +108,18 @@ print(max_profit(jobs))  # Output: 17
 
 ## Time Complexity
 
-1. **Sorting**: \(O(N \log N)\)
+1. **Sorting**: \(O(N log N)\)
 2. **DP Table Filling**:
-   - Each entry requires finding the latest non-conflicting job, which takes \(O(\log N)\) due to binary search.
-   - Hence, filling the table takes \(O(N \log N)\).
+   - Each entry requires finding the latest non-conflicting job, which takes \(O(log N)\) due to binary search.
+   - Hence, filling the table takes \(O(N log N)\).
 
-Overall time complexity: \(O(N \log N)\)
+Overall time complexity: \(O(N log N)\)
 
 ## Space Complexity
 
 The space complexity is \(O(N)\) for the `dp` array.
 
-Thus, this approach efficiently finds the maximum profit subset of non-overlapping jobs using dynamic programming with a time complexity of \(O(N \log N)\) and a space complexity of \(O(N)\).
+Thus, this approach efficiently finds the maximum profit subset of non-overlapping jobs using dynamic programming with a time complexity of \(O(N log N)\) and a space complexity of \(O(N)\).
 
 Let's revisit the binary search implementation for finding the latest non-conflicting job. We need to ensure that the binary search is correctly identifying the largest index \( j \) where the finish time of job \( j \) is less than or equal to the start time of job \( i \).
 
@@ -191,5 +191,5 @@ This binary search will correctly identify the latest job that doesn't conflict 
 ### Time and Space Complexity
 
 The time and space complexity remain the same:
-- **Time Complexity**: \(O(N \log N)\) due to sorting and binary search operations.
+- **Time Complexity**: \(O(N log N)\) due to sorting and binary search operations.
 - **Space Complexity**: \(O(N)\) for storing the DP table.
