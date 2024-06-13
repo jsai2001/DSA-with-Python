@@ -100,3 +100,83 @@ The space complexity of the Bellman-Ford algorithm is \(O(V + E)\). This is beca
 - The edge list requires \(O(E)\) space.
 
 Thus, the total space complexity is \(O(V + E)\).
+
+A **negative weight cycle** in a weighted directed graph is a cycle (a path that starts and ends at the same vertex) where the sum of the weights of the edges in the cycle is negative. This implies that you can repeatedly traverse this cycle and continuously decrease the total path cost, which makes finding shortest paths problematic because the cost can be made arbitrarily small (i.e., infinitely negative).
+
+### Example of a Negative Weight Cycle
+
+Consider the following directed graph with 4 nodes and the given edges:
+
+```
+nodes = 4
+edges = [
+    (0, 1, 1),
+    (1, 2, 1),
+    (2, 3, 1),
+    (3, 1, -4)
+]
+```
+
+Graphically, the graph looks like this:
+
+```
+    1       1       1
+0 ----> 1 ----> 2 ----> 3
+        ^               |
+        |_______________|
+               -4
+```
+
+In this graph, the cycle 1 -> 2 -> 3 -> 1 has weights 1 + 1 + (-4) = -2. Since the total weight of the cycle is negative, this graph contains a negative weight cycle.
+
+### Why Negative Weight Cycles are Problematic
+
+Negative weight cycles are problematic in the context of shortest path algorithms because they make it impossible to define a finite shortest path. Here’s why:
+
+- In a graph with a negative weight cycle, you can keep traversing the cycle to reduce the path cost indefinitely.
+- For instance, consider a path from a source node to some node `u` where a negative weight cycle exists. If we find a path from the source to `u` with cost `C`, by traversing the negative weight cycle once, the cost can be reduced further to `C - k` (where `k` is the absolute value of the sum of weights in the cycle).
+- Thus, the concept of the shortest path becomes meaningless because the path cost can be reduced infinitely.
+
+### Detecting Negative Weight Cycles
+
+To detect a negative weight cycle, we use the Bellman-Ford algorithm, which works as follows:
+
+1. **Initialization**:
+   - Initialize the distance to the source node to 0 and all other distances to infinity.
+
+2. **Relaxation**:
+   - Relax all edges repeatedly (specifically `n-1` times, where `n` is the number of nodes).
+
+3. **Check for Cycles**:
+   - After `n-1` relaxations, perform one more relaxation. If any edge can still be relaxed, it means a negative weight cycle exists in the graph.
+
+### Conclusion
+
+A negative weight cycle is a loop in a graph where the sum of the edge weights is negative. Detecting such cycles is crucial for shortest path algorithms to function correctly, and the Bellman-Ford algorithm is an efficient way to do this. If a negative weight cycle exists, shortest path calculations become invalid as the cost can be infinitely reduced by repeatedly traversing the cycle.
+
+### Time Efficient Approch
+
+```python
+class Solution:
+    def isNegativeWeightCycle(self, n, edges):
+        inf = 1000000000000000000 # initializing the value of infinity
+        d = [0 for i in range(n)] # creating an array to store the minimum distances
+        p = [-1 for i in range(n)] # creating an array to store the parent nodes
+        for i in range(n): # iterating over all the nodes
+            x = -1 # initializing x to -1
+            for e in edges: # iterating over all the edges
+                if(d[e[0]] + e[2] < d[e[1]]): # if the distance to the destination node is less than the current minimum distance
+                    d[e[1]] = d[e[0]] + e[2] # update the minimum distance
+                    p[e[1]] = e[0] # update the parent node
+                    x = e[1] # update x to the destination node
+        if(x == -1): # if x is still -1, there is no negative weight cycle
+            return 0
+        return 1 # else, there is a negative weight cycle
+```
+
+### Complexity
+
+**Time Complexity:** O(n * m), where n is the number of nodes, and m is the number of edges. This is because the algorithm performs n-1 iterations over all edges.
+
+**Space Complexity:** O(n) due to the arrays used to store distances and parent nodes.
+
