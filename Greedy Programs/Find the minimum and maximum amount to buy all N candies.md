@@ -25,26 +25,30 @@ In a candy store, you have \( N \) different types of candies with given prices.
 ### Implementation
 
 ```python
-def calculate_minimum_and_maximum_costs(prices, K):
-    N = len(prices)
+def calculate_minimum_and_maximum_costs(candies, K):
+    N = len(candies)
     
     # Sort prices for minimum cost calculation
-    prices.sort()
+    candies.sort()
     
     min_cost = 0
     i = 0
-    while i < N:
-        min_cost += prices[i]
-        i += (K + 1)
+    candies_used = 0
+    while candies_used < N:
+        min_cost += candies[i]
+        candies_used += (K + 1)
+        i+=1
     
     # Sort prices for maximum cost calculation
-    prices.sort(reverse=True)
+    candies.sort(reverse=True)
     
     max_cost = 0
     i = 0
-    while i < N:
-        max_cost += prices[i]
-        i += (K + 1)
+    candies_used = 0
+    while candies_used < N:
+        max_cost += candies[i]
+        candies_used += (K + 1)
+        i += 1
     
     return min_cost, max_cost
 
