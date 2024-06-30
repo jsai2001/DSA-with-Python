@@ -8,7 +8,7 @@ Here's the step-by-step approach:
 2. **Select the first meeting and add it to the list of selected meetings.**
 3. **Iterate through the remaining meetings** and select a meeting if its start time is greater than or equal to the finish time of the last selected meeting.
 
-- **Time Complexity:** \(O(N \log N)\)
+- **Time Complexity:** \(O(N log N)\)
 
 - **Space Complexity:** \(O(N)\)
 
@@ -32,9 +32,9 @@ Here's the step-by-step approach:
 6. **Return the list of selected meeting indices.**
 
 ### Time Complexity:
-- Sorting the list of meetings takes \(O(N \log N)\).
+- Sorting the list of meetings takes \(O(N log N)\).
 - Iterating through the meetings takes \(O(N)\).
-- Thus, the overall time complexity is \(O(N \log N)\).
+- Thus, the overall time complexity is \(O(N log N)\).
 
 ### Space Complexity:
 - Storing the list of meetings and the result list takes \(O(N)\) space.
